@@ -8,7 +8,7 @@ We will do this by making a javaFx desktop application that uses user input for 
 To provide ease of access to local theatre showtimes on demand.
 ## **Deliverables:**
 a functioning program which can scrape and display movie titles and showtimes in a streamlined fashion.
-## **Plan (6 weeks from Oct 29 – Dec 7)**
+## **Plan (6 weeks)**
 - [ ] 1. Build the layout for project the UML
 - [ ] 2. Focus on the JavaFx portion with the inner working not build but being built in mind.
 - [ ] 3. More JavaFx
