@@ -1,7 +1,9 @@
 # Movie-Java-
 ## **Description:**
-### **What?** We will make a movie showtime application that will display the shotimes for your local theatre, 
-### **How?** We will do this by making a javaFx desktop application that uses user input for location that will than scrape the local theatre shotimes and titles and display them for the user.  
+### **What?**
+We will make a movie showtime application that will display the shotimes for your local theatre, 
+### **How?** 
+We will do this by making a javaFx desktop application that uses user input for location that will than scrape the local theatre shotimes and titles and display them for the user.  
 ### **Why?**
 To provide ease of access to local theatre showtimes on demand.
 ## **Deliverables:**
