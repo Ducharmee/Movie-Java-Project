@@ -1,5 +1,4 @@
 
-public class Theatre extends User {
-	public String location;
-	
+public class Theatre {
+
 }
