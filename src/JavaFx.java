@@ -71,7 +71,7 @@ public class JavaFx extends Application implements Initializable{
 		
 		Pane p = null;
 		
-		loader = new FXMLLoader(getClass().getResource("new.fxml"));
+		loader = new FXMLLoader(getClass().getResource("locations.fxml"));
 		p = loader.load();
 		
 		//Parent tableview = FXMLLoader.load(getClass().getResource("new.fxml"));
