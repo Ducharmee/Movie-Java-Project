@@ -13,3 +13,11 @@ Finished setting up the class design in Eclipse aswell as building the starting 
 Continue to Work on scenebuilder and JavaFx portion and work on some jspoup if done with GUI.
 - Any blocking issues/challenges need to be addressed?
 We need to figure out how to implement multiple scenes for different layout sequence.
+
+Week 3
+- What did your team do last week?
+Set up the first scene in scenebuilder. We added a button and a drop down menu with movie theaters that are chooseable 
+- What will your team do this week?
+Continue to Work on scenebuilder and JavaFx portion and work on some jspoup if done with GUI.More specifically we attempted to get multiple scenes working when one movie theatre is clicked. 
+- Any blocking issues/challenges need to be addressed?
+We need to figure out how to implement multiple scenes for different layout sequence. We are getting a cast.Class.Exception and will continue to work on fixing that and getting multiple scenes up and running.
