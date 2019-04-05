@@ -32,10 +32,6 @@ public class JavaFx extends Application implements Initializable{
 	
 	FXMLLoader loader;
 	static String[] primaryStage;
-	public static void main(String[] args) {
-		
-		launch(args);
-	}
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		stage = primaryStage; 
@@ -68,7 +64,7 @@ public class JavaFx extends Application implements Initializable{
 	public void button1Click(ActionEvent event) throws IOException{
 		Theatre t = new Theatre();
 		t.type = myChoice.getSelectionModel().getSelectedItem().toString();
-		
+		Theatre.scraperTheaters(Theatre.type);
 		Pane p = null;
 		
 		loader = new FXMLLoader(getClass().getResource("locations.fxml"));
