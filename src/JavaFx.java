@@ -23,14 +23,24 @@ public class JavaFx extends Application implements Initializable{
 	Button myButton;
 	
 	@FXML
-	ChoiceBox myChoice;
-	@FXML
 	Stage stage;
 	Stage stage2;
 	Scene scene1;
 	Scene scene2;
-	
-	FXMLLoader loader;
+//	@FXML
+//	Button amc;
+//	@FXML
+//	Button cinemark;
+//	@FXML
+//	Button patriot;
+//	@FXML
+//	Button marcus;
+//	@FXML
+//	Button regal;
+//	@FXML
+//	Button showcase;
+//	
+	 FXMLLoader loader;
 	static String[] primaryStage;
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -52,39 +62,120 @@ public class JavaFx extends Application implements Initializable{
 	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		myChoice.setItems(FXCollections.observableArrayList("AMC", "Regal Cinemas","Cinemark Theatres","Marcus Theatres","Landmark Theatres"));
+		
 		
 		
 		
 		// TODO Auto-generated method stub
 		
 	}
+	public void sceneSelector(String scene) throws IOException {
+		 Parent pane = FXMLLoader.load(getClass().getResource("select movie.fxml"));
+
+		//   Scene scene1 = new Scene( pane );
+		   stage.getScene().setRoot(pane);;
+	}
 	
 	//First Button onAction Method
 	public void button1Click(ActionEvent event) throws IOException{
 		Theatre t = new Theatre();
-		t.type = myChoice.getSelectionModel().getSelectedItem().toString();
+		
 		Theatre.scraperTheaters(Theatre.type);
 		Pane p = null;
 		
 		loader = new FXMLLoader(getClass().getResource("locations.fxml"));
 		p = loader.load();
-		
-		//Parent tableview = FXMLLoader.load(getClass().getResource("new.fxml"));
-		//Scene tableviewScene = new Scene(tableview);
-		
+	
 		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 		window.setScene(new Scene(p));
 		window.show();
-	//	loader = new FXMLLoader(getClass().getResource("locations.fxml"));
-	//	Pane p = loader.load();
-		
-		//stage.setScene(new Scene(p));
-	//	stage.show();
+
 		
 	
 			
 	
+	}
+	public void amc(ActionEvent event) throws IOException{
+		Theatre.type = "AMC";
+		Controller2.src = "636021834358437385-amc-la";
+		Theatre.scraperTheaters(Theatre.type);
+		Pane p = null;
+		
+		loader = new FXMLLoader(getClass().getResource("locations.fxml"));
+		p = loader.load();
+	
+		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+		window.setScene(new Scene(p));
+		window.show();
+	}
+	public void cinemark(ActionEvent event) throws IOException{
+		Controller2.src = "cinemark1";
+		Theatre.type = "CINEMARK";
+		Theatre.scraperTheaters(Theatre.type);
+		Pane p = null;
+		
+		loader = new FXMLLoader(getClass().getResource("locations.fxml"));
+		p = loader.load();
+	
+		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+		window.setScene(new Scene(p));
+		window.show();
+		
+	}
+	public void patriot(ActionEvent event) throws IOException{
+		Controller2.src = "patriot";
+		Theatre.type = "PATRIOT";
+		Theatre.scraperTheaters(Theatre.type);
+		Pane p = null;
+		
+		loader = new FXMLLoader(getClass().getResource("locations.fxml"));
+		p = loader.load();
+	
+		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+		window.setScene(new Scene(p));
+		window.show();
+		
+	}
+	public void marcus(ActionEvent event) throws IOException{
+		Controller2.src = "marcus";
+		Theatre.type = "BLACKSTONE";
+		Theatre.scraperTheaters(Theatre.type);
+		Pane p = null;
+		
+		loader = new FXMLLoader(getClass().getResource("locations.fxml"));
+		p = loader.load();
+	
+		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+		window.setScene(new Scene(p));
+		window.show();
+			
+		}
+	public void regal(ActionEvent event) throws IOException{
+		Controller2.src = "Regal+Cinemas+Movie+Theatre";
+		Theatre.type = "REGAL";
+		Theatre.scraperTheaters(Theatre.type);
+		Pane p = null;
+		
+		loader = new FXMLLoader(getClass().getResource("locations.fxml"));
+		p = loader.load();
+	
+		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+		window.setScene(new Scene(p));
+		window.show();
+		
+	}
+	public void showcase(ActionEvent event) throws IOException{
+		Controller2.src = "showcase";
+		Theatre.type = "SHOWCASE";
+		Theatre.scraperTheaters(Theatre.type);
+		Pane p = null;
+		
+		loader = new FXMLLoader(getClass().getResource("locations.fxml"));
+		p = loader.load();
+	
+		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+		window.setScene(new Scene(p));
+		window.show();
 	}
 
 }
