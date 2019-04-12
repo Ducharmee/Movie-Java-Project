@@ -18,3 +18,6 @@ a functioning program which can scrape and display movie titles and showtimes in
 ## **Team members**
 Elise Ducharme
 Justin Parker
+
+## Getting Started
+Program relys on internet access to get showtimes.
