@@ -30,3 +30,11 @@ smooth out the scenebuilder design and layout to be more user friendly
 - Any blocking issues/challenges need to be addressed?
 looks all good
 
+Week 5
+- What did your team do last week?
+Got all the movie banners, names and showtimes for a theatre.
+- What will your team do this week?
+smooth out any GUI bugs.
+- Any blocking issues/challenges need to be addressed?
+looks all good
+
