@@ -15,6 +15,18 @@ a functioning program which can scrape and display movie titles and showtimes in
 - [ ] 4. Focus on the Jsoup scraping portion
 - [ ] 5. More Jsoup
 - [ ] 6. Streamline project fix bugs add little updates to GUI  
+## **Install **
+Download the compiled jar file in repository.
+## **Run **
+Execute the program with internet access.
+## **Features **
+1.Choose an option of a movie theatre
+2. Choose a specific location
+3. Choose a movie that is being shown
+4. View showtimes for movies being shown in that theatre
+## **Demo Video **
+https://youtu.be/tmp7TL9FkWc
+
 ## **Team members**
 Elise Ducharme
 Justin Parker
