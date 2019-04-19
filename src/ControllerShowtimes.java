@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -11,11 +12,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
 public class ControllerShowtimes extends JavaFx implements Initializable {
@@ -23,49 +26,55 @@ public class ControllerShowtimes extends JavaFx implements Initializable {
 	Pane pane;
 	@FXML
 	ImageView bckrd;
+	@FXML
+	Label theatreType;
+	
+	public static WebView web;
+	public static String webhtml;
 	public static String imgUrl;
 	ArrayList<String> sortedTimes = new ArrayList<>();
 	boolean greatest = true;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
+		theatreType.setText(Theatre.locationin);
 		System.out.println(imgUrl);
+		//Format Movie Banner
 		bckrd = new ImageView(imgUrl);
+		bckrd.setPreserveRatio(false);
+		bckrd.maxHeight(380);
+		bckrd.maxWidth(600);
+		bckrd.setFitWidth(380);
+		bckrd.setFitHeight(600);
 		pane.getChildren().add(bckrd);
-		ArrayList<Integer> check = new ArrayList<>();
-		sortedTimes.add(Movie.showtimes.get(0));
-		int length =Movie.showtimes.size()-1;
-		int prev = Integer.valueOf(Movie.showtimes.get(0).split(":")[0]);
-		for(int x=0;x<length-1;x++){
-			if(prev>Integer.valueOf(Movie.showtimes.get(x+1).split(":")[0])||(Movie.showtimes.get(x+1).split(":")[1].contains("am")&&Movie.showtimes.get(x).split(":")[1].contains("pm"))) {
-			
-				break;
-			}
-			prev =Integer.valueOf(Movie.showtimes.get(x+1).split(":")[0]); 
-			sortedTimes.add(Movie.showtimes.get(x+1));
-		}
-		sortedTimes.add(Movie.showtimes.get(0));
-		
+
+		//Array of Time Labels
 		Label[] times = new Label[Movie.showtimes.size()];
 		int count = 0;
 		int offset = 450;
-		for(Label l:times) { //int x=0;x<times.length;x++
-			l = new Label(Movie.showtimes.get(count));
-			l.setLayoutX(offset);
-			l.setLayoutY(20);
-			l.setTextFill(Color.WHITE);
-			l.setFont(Font.font("Cambria", 24));
+		int offsetY = 0;
+		//Format Time Labels to Scene
+		for(int x=0;x<times.length;x++) { // Label l:times
+			final int xx = x;
+			times[x] = new Label(Movie.showtimes.get(count));
+			times[x].setLayoutX(offset);
+			times[x].setLayoutY(20+offsetY);
+			times[x].setTextFill(Color.WHITE);
+			times[x].setFont(Font.font("Cambria", 24));
 			offset+=150;
+		if(offset>1100) {
+			offset = 450;
+			offsetY += 30;
+		}
 		
 			count++;
 			
-			pane.getChildren().add(l);
-			l.setOnMousePressed(new EventHandler<MouseEvent>() {
+			pane.getChildren().add(times[x]);
+			times[x].setOnMousePressed(new EventHandler<MouseEvent>() {
 			
 				@Override
 				public void handle(MouseEvent event) {
-					//ControllerMovieBrowser.labelnum = 
-					
+					ControllerMovieBrowser.labelnum = xx;
 					loader = new FXMLLoader(getClass().getResource("moviebrowser.fxml"));
 					Pane p = null;
 					try {
@@ -74,11 +83,7 @@ public class ControllerShowtimes extends JavaFx implements Initializable {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-				//	System.out.println(count);
-					
-					//ControllerMovieBrowser.url = 
-					//Parent tableview = FXMLLoader.load(getClass().getResource("new.fxml"));
-					//Scene tableviewScene = new Scene(tableview);
+
 					
 					Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 					window.setScene(new Scene(p));
@@ -91,6 +96,12 @@ public class ControllerShowtimes extends JavaFx implements Initializable {
 			
 		}
 	}
+	/**
+	 * 
+	 * Resets Scraped data for previous scene
+	 * and goes to the previous scene
+	 * 
+	 */
 	public void back(ActionEvent event) throws IOException{
 		Movie.movielist.clear();
 		Movie.showtimeurls.clear();

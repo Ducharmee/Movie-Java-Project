@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
@@ -15,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -27,20 +29,7 @@ public class JavaFx extends Application implements Initializable{
 	Stage stage2;
 	Scene scene1;
 	Scene scene2;
-//	@FXML
-//	Button amc;
-//	@FXML
-//	Button cinemark;
-//	@FXML
-//	Button patriot;
-//	@FXML
-//	Button marcus;
-//	@FXML
-//	Button regal;
-//	@FXML
-//	Button showcase;
-//	
-	 FXMLLoader loader;
+	FXMLLoader loader; //Full Scope loader
 	static String[] primaryStage;
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -62,7 +51,7 @@ public class JavaFx extends Application implements Initializable{
 	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
+
 		
 		
 		
@@ -95,10 +84,11 @@ public class JavaFx extends Application implements Initializable{
 			
 	
 	}
+	//Button: AMC on click method
 	public void amc(ActionEvent event) throws IOException{
 		Theatre.type = "AMC";
 		Controller2.src = "636021834358437385-amc-la";
-		Theatre.scraperTheaters(Theatre.type);
+		//Theatre.scraperTheaters(Theatre.type);
 		Pane p = null;
 		
 		loader = new FXMLLoader(getClass().getResource("locations.fxml"));
@@ -122,6 +112,7 @@ public class JavaFx extends Application implements Initializable{
 		window.show();
 		
 	}
+	//Button: Patriot on click method
 	public void patriot(ActionEvent event) throws IOException{
 		Controller2.src = "patriot";
 		Theatre.type = "PATRIOT";
@@ -136,6 +127,7 @@ public class JavaFx extends Application implements Initializable{
 		window.show();
 		
 	}
+	//Button: marcus on click method
 	public void marcus(ActionEvent event) throws IOException{
 		Controller2.src = "marcus";
 		Theatre.type = "BLACKSTONE";
@@ -150,6 +142,7 @@ public class JavaFx extends Application implements Initializable{
 		window.show();
 			
 		}
+	//Button: Regal on click method
 	public void regal(ActionEvent event) throws IOException{
 		Controller2.src = "Regal+Cinemas+Movie+Theatre";
 		Theatre.type = "REGAL";
@@ -164,6 +157,7 @@ public class JavaFx extends Application implements Initializable{
 		window.show();
 		
 	}
+	//Button: Showcase on click method
 	public void showcase(ActionEvent event) throws IOException{
 		Controller2.src = "showcase";
 		Theatre.type = "SHOWCASE";
